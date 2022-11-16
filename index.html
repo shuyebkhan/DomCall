@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>DOM MANIPULATION</h1>
+    <h1 id="heading">I am making for Dom Manipulation</h1>
+
+    <p class="para">I am class1 making for Dom maipulation</p>
+    <p class="para">I am class2 making for Dom maipulation</p>
+    <p class="para">I am class3 making for Dom maipulation</p>
+    <p class="para">I am class4 making for Dom maipulation</p>
+    <p class="para">I am class5 making for Dom maipulation</p>
+
+
+
+    <div class="parent">
+        <h1 class="head">Javascript is Awesome</h1>
+        <h2>This is sub Heading</h2>
+    </div>
+
+
+
+        <h1 id="head">Javascript attach to Button</h1>
+       <button id="btn">Click Me</button>
+</body>
+<script>
+    // get idName
+
+    // const head=document.getElementById("heading").innerText="I am changing by DOM";
+
+
+    // get tagName
+
+    //  const head= document.getElementsByTagName("h1");
+    //  console.log(head[0]);
+
+
+    // get class.
+
+
+    // const head= document.getElementsByClassName("para");
+    // console.log(head);
+
+
+    // query selector
+
+    //  const heading = document.querySelector('#heading');
+    //  console.log(heading);
+
+
+    // const head= document.querySelectorAll('.para');
+    //  console.log(head);
+
+
+
+    // traverse in DOM.
+
+    // 1.parentnode
+
+    // const head=document.querySelector('.head');
+    //   const parent =  head.parentNode;
+    //   console.log(parent);
+
+
+
+
+    //   2.childrenNode
+
+    //  const parent= document.querySelector('.parent');
+    //  console.log(parent.childNodes);
+
+
+
+    // 3.nextElementSibling
+
+    // const head= document.querySelector('.head');
+    // console.log(head.nextElementSibling);
+
+
+
+    //  4.previousElementSibling. 
+
+    //  const subHeading=document.querySelector('h2');
+    //  console.log(subHeading.previousElementSibling);
+
+
+    // 5.Manipulation
+
+
+    // const head= document.querySelector('.head');
+    // head.innerHTML="Web dev is Awesome";
+    // head.style.color= 'red';
+    // head.style.fontSize= '50px';
+    // head.classList.add('title');
+    // head.classList.remove('head');
+
+
+
+    //   6.CreatElement;
+
+    const newHead = document.createElement('h1');
+    newHead.innerHTML = "I am append in DOM.";
+    newHead.classList.add('newHead');
+    const parent=document.querySelector('.parent');
+    parent.appendChild(newHead);
+    console.log(newHead);
+
+
+
+   
+   
+   
+    const newSubHead= document.createElement('h6');
+     newSubHead.innerHTML="Heading 6 Create by DOM Manipulation";
+    //   parent.appendChild(newSubHead);
+
+
+    newHead.insertAdjacentElement('beforebegin',newSubHead);
+    //    newHead.insertAdjacentElement('afterbegin',newSubHead);
+    // newHead.insertAdjacentElement('beforeend',newSubHead);
+    // newHead.insertAdjacentElement('afterend',newSubHead);
+    // console.log(newSubHead);
+
+
+
+
+
+     // EVENT.
+       
+      const head= document.querySelector("#head");
+      const btn =document.querySelector("#btn");
+
+
+       btn.addEventListener('click', function (event) {
+            head.style.color="purple";
+             head.style.fontSize ="25px";
+           console.log('clicked',event);
+       });
+
+
+
+
+
+// CALL APPLY BIND METHOD
+
+
+
+
+// CALL METHOD
+let student ={
+    firstName:"shuyeb",
+    lastName:"khan",
+    getEmail:function(age){
+        console.log(`my first Name is ${this.firstName} my last name is ${this.lastName} my age is ${age}.`)
+    }
+};
+
+let teacher={
+    firstName:"tapha",
+    lastName:"technical"   
+};
+
+
+
+let principal={
+     firstName:"yahoo",
+     lastName:"baba"
+};
+
+student.getEmail.call(principal,40);
+
+
+
+
+
+// REUSE FUNCTION BY CALL.
+function fun(age,sub){
+    console.log(`my first name ${this.firstName} and my last name is ${this.lastName} and my age ${age} i like ${sub} subject.`)
+};
+
+
+fun.call(student,22,"math");
+fun.call(teacher,32,"english");
+fun.call(principal,40,"All");
+
+
+
+// APPLY METHOD.
+
+
+
+// APPLY METHOD CALL WITH ARRAY.
+fun.apply(student,[22,"math"]);
+fun.apply(teacher,[32,"english"]);
+fun.apply(principal,[40,"All"]);
+
+
+
+
+// BIND METHOD.
+
+let callAnotherTime = fun.bind(student);
+callAnotherTime(19,"Art");
+
+
+
+
+
+
+
+
+
+// CARRY OUTPUT.
+
+
+</script>
+
+</html>
